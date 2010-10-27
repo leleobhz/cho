@@ -4,14 +4,22 @@
 # Here, a lot of copied code from another places. A good restart with py.
 # Let begin with the ugly
 
-from elementtree import ElementTree
+import ConfigParser
+from PyDbLite import Base
+from elementtree.ElementTree import parse
 
 config = ConfigParser.ConfigParser()
 config.read("cho++.conf")
 
-class chotab(dict)
-	def __init__(self.filename)
-		self.xmldata = ElementTree(file=config.get("main", "datafile"))
+# Force read-only operations within database
+chofile=open(config.get("main", "datafile"), "r")
+
+class chotab(dict):
+	def __init__():
+		self.xmldata = parse(chofile)
 		self.xmlparsing(self.xmldata)
 
-	def xmlparsing(self.xmldata) self.iterator = self.xmldata.getiterator()
+	def xmlparsing(xmldata):
+		iterator = xmldata.getiterator()
+		# Initial parsing here. Just to pass by headers
+		
